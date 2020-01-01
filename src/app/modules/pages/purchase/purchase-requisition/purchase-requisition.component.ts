@@ -16,6 +16,9 @@ declare var $;
 })
 export class PurchaseRequisitionComponent implements OnInit {
 
+
+
+
   private gridApi;
   private isDel: string;
   private listIndex: number;
@@ -37,7 +40,6 @@ export class PurchaseRequisitionComponent implements OnInit {
 
 
   constructor(private toastr: ToastrService, private http: HttpClient) {
-
     this.gridOptions = {
       context: { componentParent: this }
     }
@@ -47,7 +49,7 @@ export class PurchaseRequisitionComponent implements OnInit {
   }
 
   showUpdatedItem(newItem) {
-    console.log(sessionStorage.getItem('agGridDel'))
+
     if (newItem.id == null) {
       //Insert Code
       newItem.id = this.Iobjdatalist.length + 1;
@@ -57,11 +59,12 @@ export class PurchaseRequisitionComponent implements OnInit {
         title: newItem.title,
         completed: newItem.completed
       })
+      this.toastr.success('Insertion Successful', 'ERP');
     }
     else {
       this.isDel = sessionStorage.getItem('agGridDel');
 
-
+      debugger
 
       if (this.isDel == 'Y') {
         //Delete Record
@@ -71,9 +74,10 @@ export class PurchaseRequisitionComponent implements OnInit {
 
         //To modify Only Grid Data
         //this.updateRow(this.listIndex, newItem);
-        console.log('inside dele');
+
         //To Modify Grid Data Source
         this.Iobjdatalist.splice(index, 1);
+        this.toastr.info('Deletion Successful', 'ERP');
       }
       else if (this.isDel == 'N') {
 
@@ -87,6 +91,7 @@ export class PurchaseRequisitionComponent implements OnInit {
 
         //To Modify Grid Data Source
         this.Iobjdatalist[index] = newItem;
+        this.toastr.info('Updation Successful', 'ERP');
       }
 
     }
@@ -167,6 +172,8 @@ export class PurchaseRequisitionComponent implements OnInit {
       })
 
   }
+
+
 
   ngOnInit() {
 

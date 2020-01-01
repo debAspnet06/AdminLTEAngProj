@@ -6,27 +6,37 @@ import { Idata } from './idata';
 })
 export class CmToCmService {
 
-  params: Idata;
-  counter = 1;
+  
   private cmDataService = new BehaviorSubject<Idata>({
-      userId: null,
-      id: null,
-      title: "",
-      completed: false
-    });
- 
+    userId: null,
+    id: null,
+    title: "",
+    completed: false
+  });
+
+  private cmDataServiceDel = new BehaviorSubject<boolean>(false);
 
   getEmployeeDetail() {
-    return this.cmDataService.asObservable()  ;
+    return this.cmDataService.asObservable();
   }
+  getdataDel() {
+    return this.cmDataServiceDel.asObservable();
+  }
+
   constructor() {
-    
+
   }
   nextCmDataValue(dtstr: Idata) {
 
     this.cmDataService.next(dtstr);
     // console.log('Inside Service');
     // console.log(dtstr);
+  }
+
+  nextCmDataDel(dtstr: boolean) {
+
+    this.cmDataServiceDel.next(dtstr);
+    
   }
 
 }

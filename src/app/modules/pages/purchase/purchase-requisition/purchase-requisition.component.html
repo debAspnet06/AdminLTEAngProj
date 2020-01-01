@@ -1,3 +1,8 @@
+<style>
+    .ag-header-cell-label {
+        justify-content: center;
+    }
+</style>
 <section class="content-header">
     <h1>
         Purchase Requisition Form
@@ -78,19 +83,13 @@
                     <h3 class="box-title">Ag Grid Table</h3>
                 </div>
                 <div class="box-body">
-                    <app-ag-grid-edit 
-                    (saveDataToPurchaseGrid)="onsaveDataToPurchaseGrid($event)"
-                    >
+                    <app-demo-modal (saveDataToPurchaseGrid)="onsaveDataToPurchaseGrid($event)"></app-demo-modal>
+                    <app-ag-grid-edit (saveDataToPurchaseGrid)="onsaveDataToPurchaseGrid($event)">
                     </app-ag-grid-edit>
                     <div style="clear: both;"></div>
-                    <ag-grid-angular style="width: 100%; height: 200px;" 
-                        class="ag-theme-balham"
-                        rowHeight="40"
-                        [gridOptions]="gridOptions"
-                        [columnDefs]="columnDefs"
-                        [animateRows]="true"                                            
-                        (gridReady)="onGridReady($event)"
-                        >
+                    <ag-grid-angular style="width: 100%; height: 200px;" class="ag-theme-balham" rowHeight="40"
+                        [gridOptions]="gridOptions" [columnDefs]="columnDefs" [animateRows]="true"
+                        (gridReady)="onGridReady($event)">
                     </ag-grid-angular>
                 </div>
             </div>

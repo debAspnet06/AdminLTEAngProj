@@ -19,15 +19,16 @@
     </div>
     <div class="col-md-1">
         <div class="form-group">
-            <label>completed</label>
+            <label>Completed</label>
             <br>
-            <input type="checkbox" [(ngModel)]='chkCompleted'  >
+            <ui-switch defaultBgColor="red" [(ngModel)]='chkCompleted'></ui-switch>
+            
         </div>
     </div>
     <div class="col-md-2">
         <div class="form-group">
             <label style="visibility: hidden ;">compldfdsfdsfdsfdsffdfs</label>
-            <button type="button" (click)="saveDataToGrid()" class="btn btn-success">Save</button>
+            <button type="button" (click)="saveDataToGrid()" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         </div>
     </div>
 </div>

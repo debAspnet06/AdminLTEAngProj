@@ -10,8 +10,9 @@ import { CustomizedGridCheckboxcellComponent } from './purchase-requisition/cust
 import { CmToCmService } from './purchase-service/cm-to-cm.service';
 import { CustomizedCellCmComponent } from './purchase-requisition/customized-cell-cm/customized-cell-cm.component';
 import { AgGridEditComponent } from './purchase-requisition/ag-grid-edit/ag-grid-edit.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { DemoModalComponent } from './purchase-requisition/demo-modal/demo-modal.component';
-
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 @NgModule({
   declarations:
@@ -20,15 +21,27 @@ import { DemoModalComponent } from './purchase-requisition/demo-modal/demo-modal
       , CustomizedGridCellComponent
       , CustomizedGridButtoncellComponent
       , CustomizedGridCheckboxcellComponent
-      , CustomizedCellCmComponent, AgGridEditComponent, DemoModalComponent
+      , CustomizedCellCmComponent
+      , AgGridEditComponent, DemoModalComponent      
+      
     ],
   imports: [
     CommonModule,
     FormsModule,
     AgGridModule.withComponents([]),
-    HttpClientModule
+    HttpClientModule,
+    UiSwitchModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'success' // set defaults here
+    })
   ],
-  providers: [CmToCmService], entryComponents: [CustomizedCellCmComponent, CustomizedGridCheckboxcellComponent],
+  providers: [CmToCmService],
+  entryComponents:
+    [
+      CustomizedCellCmComponent,
+      CustomizedGridCheckboxcellComponent    
+      
+    ],
   exports: [PurchaseRequisitionComponent]
 })
 export class PurchaseModule {

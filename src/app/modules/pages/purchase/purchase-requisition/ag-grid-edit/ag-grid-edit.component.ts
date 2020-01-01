@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CmToCmService } from '../../purchase-service/cm-to-cm.service';
 import { Idata } from '../../purchase-service/idata';
 
+
 @Component({
   selector: 'app-ag-grid-edit',
   templateUrl: './ag-grid-edit.component.html',
@@ -46,21 +47,21 @@ export class AgGridEditComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    
     this.cmservice.getEmployeeDetail().subscribe(data => {
-      this.ilist = data;
-      this.isDel = sessionStorage.getItem('agGridDel');
-      if (this.isDel == 'Y') {
-        this.saveDataToPurchaseGrid.emit(this.ilist)
-      }
-      else {
+
+      if (sessionStorage.getItem('modalOn') != 'Y' && sessionStorage.getItem('agGridDel') != 'Y') {
+        this.ilist = data;
+
         this.txtTitle = this.ilist.title;
         this.txtID = this.ilist.id;
         this.txtUSerID = this.ilist.userId;
         this.chkCompleted = this.ilist.completed;
       }
+
+
+      
     });
+
 
 
 

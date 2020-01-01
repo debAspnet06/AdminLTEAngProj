@@ -10,7 +10,7 @@ import { CustomizedGridCheckboxcellComponent } from './purchase-requisition/cust
 import { CmToCmService } from './purchase-service/cm-to-cm.service';
 import { CustomizedCellCmComponent } from './purchase-requisition/customized-cell-cm/customized-cell-cm.component';
 import { AgGridEditComponent } from './purchase-requisition/ag-grid-edit/ag-grid-edit.component';
-import { DemoModalComponent } from './purchase-requisiton/demo-modal/demo-modal.component';
+import { DemoModalComponent } from './purchase-requisition/demo-modal/demo-modal.component';
 
 
 @NgModule({
